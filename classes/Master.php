@@ -180,7 +180,7 @@ function save_appointment(){
 $owners_id = $_SESSION['userdata']['id'];
 
     if(empty($_POST['id'])){
-        $prefix = "OVAS-" . date("Ym");
+        $prefix = "CODE-" . date("Ym");
         $code = sprintf("%'.04d",1);
         while(true){
             $check = $this->conn->query("SELECT * FROM `appointment_list` WHERE code = '{$prefix}{$code}'")->num_rows;

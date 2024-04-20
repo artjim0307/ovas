@@ -4,6 +4,10 @@ function start_loader() {
   );
 }
 
+function clearSignupForm() {
+  $("#signup-frm")[0].reset(); // Reset the form fields
+}
+
 function end_loader() {
   $("#preloader").fadeOut("fast", function () {
     $("#preloader").remove();
@@ -136,46 +140,43 @@ $(document).ready(function () {
       },
     });
   });
+  // $("#signup-frm").submit(function (e) {
+  //   e.preventDefault();
+  //   start_loader();
+  //   console.log("FUNCTION SUBMIT ");
+  //   if ($(".err_msg").length > 0) $(".err_msg").remove();
+  //   $.ajax({
+  //     url: _base_url_ + "classes/Login.php?f=signup",
+  //     method: "POST",
+  //     data: $(this).serialize(),
+  //     error: function (err) {
+  //       console.log(err);
+  //       alert_toast("An error occurred", "danger");
+  //       end_loader();
+  //     },
+  //     success: function (resp) {
+  //       console.log("Response from server:", resp); // Log the response for debugging
+  //       if (resp) {
+  //         resp = JSON.parse(resp);
 
-  $("#signup-frm").submit(function (e) {
-    e.preventDefault();
-    start_loader();
-    console.log("FUNCTION SUBMIT ");
-    if ($(".err_msg").length > 0) $(".err_msg").remove();
-    $.ajax({
-      url: _base_url_ + "classes/Login.php?f=signup",
-      method: "POST",
-      data: $(this).serialize(),
-      error: function (err) {
-        console.log(err);
-        alert_toast("An error occurred", "danger");
-        end_loader();
-      },
-      success: function (resp) {
-        console.log("Response from server:", resp); // Log the response for debugging
-        if (resp) {
-          try {
-            resp = JSON.parse(resp);
-            if (resp.status == "success") {
-              alert_toast("User registered successfully", "success");
-              // Redirect or perform any action after successful signup
-            } else {
-              // Handle errors or display appropriate messages
-              console.log("Error: ", resp.message);
-              alert_toast("Error registering user", "error");
-            }
-          } catch (error) {
-            // Handle non-JSON responses
-            console.error("Error parsing JSON:", error);
-            alert_toast("An error occurred", "danger");
-          }
-        }
-        end_loader();
-      },
-    });
-  });
+  //         if (resp.status == "success") {
+  //           location.replace(_base_url_ + "/admin/?page=dashboard");
+  //           clearSignupForm();
+  //         } else {
+  //           console.log("Error: ", resp.message);
+  //           alert_toast("Error registering user", "error");
+  //           alert(resp.message);
+  //         }
+  //       } else {
+  //         console.log("Empty response"); // Log empty response
+  //         alert_toast("Empty response from server", "error"); // Show error toast
+  //       }
+  //       end_loader(); // Hide loader regardless of response
+  //     },
+  //   });
+  // });
+  // Function to clear the signup form fields
 
-  // System Info
   $("#system-frm").submit(function (e) {
     e.preventDefault();
     // start_loader()

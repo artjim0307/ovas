@@ -372,7 +372,7 @@ function getUserType($username) {
         </div>
        <div class="signup-form" style="display: none;">
             <h1 class="login-titles">Sign Up</h1>
-          <form id="signup-frm" method="POST" action="/Signup.php">
+          <form id="signup-frm" method="POST">
                 <!-- Your form fields here -->
                 <input type="text" name="firstname" placeholder="First Name" class="form-control" required>
                 <input type="text" name="lastname" placeholder="Last Name" class="form-control" required>
@@ -433,6 +433,7 @@ function getUserType($username) {
             // Your JavaScript code here
         });
 
+
         function togglePassword(fieldId) {
             var passwordField = document.getElementById(fieldId);
             var icon = passwordField.nextElementSibling.querySelector(".toggle-icon");
@@ -468,7 +469,25 @@ function getUserType($username) {
                 $(".login-tabs a").removeClass("active-tab");
                 $(this).addClass("active-tab");
             });
+        $("#signup-frm").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: _base_url_ + "classes/Login.php?f=signup", 
+                data: $(this).serialize(),
+                dataType: "json",
+                success: function(response) {
+                    if (response.status === 'success') {
+                    
+                        $('#signup-frm')[0].reset();
+                     
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
         });
+    });
     </script>
 
 

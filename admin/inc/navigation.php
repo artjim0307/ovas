@@ -67,7 +67,7 @@ background-color: #437ABD;
                       </a>
                              <?php endif; ?>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <?php if($_settings->userdata('type') == 2  || $_settings->userdata('type') == 1): ?>
                       <a href="<?php echo base_url ?>admin/?page=inquiries" class="nav-link nav-inquiries">
                         <i class="nav-icon fas fa-question-circle"></i>
@@ -77,7 +77,7 @@ background-color: #437ABD;
                       </a>
                             <?php endif; ?>
                     
-                    </li>
+                    </li> -->
                       <li class="nav-item">
                             <?php if($_settings->userdata('type') == 3): ?>
                       <a href="<?php echo base_url ?>admin/?page=user_appointment" class="nav-link nav-inquiries">

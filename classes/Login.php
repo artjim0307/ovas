@@ -30,7 +30,7 @@ public function login()
         $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
         $stmt->bind_param('ss', $username, $password);
         $login_type = 3;
-        $redirect_url = 'admin/index.php'; 
+           $redirect_url = 'admin/?page=dashboard';
     } elseif ($type == 2) {
         $stmt = $this->conn->prepare("SELECT *, CONCAT(lastname, ', ', firstname, ' ', middlename) AS fullname FROM client_list WHERE email = ? AND `password` = ?");
         $pw = md5($password);
@@ -41,7 +41,7 @@ public function login()
         $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
         $stmt->bind_param('ss', $username, $password);
         $login_type = 1;
-        $redirect_url = 'admin/?page=dashboard';
+       $redirect_url = 'admin/index.php'; 
     }
 
     $stmt->execute();
@@ -81,49 +81,7 @@ public function login()
 			redirect('admin/login.php');
 		}
 	}
-	function client_login()
-	{
-		extract($_POST);
-		$stmt = $this->conn->prepare("SELECT *,concat(lastname,', ',firstname,' ',middlename) as fullname from client_list where email = ? and `password` = ? ");
-		$pw = md5($password);
-		$stmt->bind_param('ss', $email, $pw);
-		$stmt->execute();
-		$stmt->execute();
-
-		if ($stmt->error) {
-			error_log('MySQL Error: ' . $stmt->error);
-		}
-		$qry = $stmt->get_result();
-		if ($this->conn->error) {
-			$resp['status'] = 'failed';
-			$resp['msg'] = "An error occurred while fetching data. Error:" . $this->conn->error;
-		} else {
-			if ($qry->num_rows > 0) {
-				$res = $qry->fetch_array();
-				if ($res['status'] == 1) {
-					foreach ($res as $k => $v) {
-						$this->settings->set_userdata($k, $v);
-					}
-					$this->settings->set_userdata('login_type', 2);
-					$resp['status'] = 'success';
-				} else {
-					$resp['status'] = 'failed';
-					$resp['msg'] = "Your Account is not verified yet.";
-				}
-
-			} else {
-				$resp['status'] = 'failed';
-				$resp['msg'] = "Invalid email or password.";
-			}
-		}
-		return json_encode($resp);
-	}
-	public function client_logout()
-	{
-		if ($this->settings->sess_des()) {
-			redirect('./login.php');
-		}
-	}
+	
 
 
 public function signup()
@@ -160,8 +118,9 @@ public function signup()
 
     // Execute the SQL statement
     if ($stmt->execute()) {
-        // User registration successful
+ 
         echo json_encode(array('status' => 'success', 'message' => 'User registered successfully'));
+ 
     } else {
         // Error occurred during user registration
         echo json_encode(array('status' => 'error', 'message' => 'Error registering user'));
@@ -179,12 +138,6 @@ switch ($action) {
 		break;
 	case 'logout':
 		echo $auth->logout();
-		break;
-	case 'client_login':
-		echo $auth->client_login();
-		break;
-	case 'client_logout':
-		echo $auth->client_logout();
 		break;
 		case 'signup':
     echo $auth->signup();

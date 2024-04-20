@@ -2,10 +2,9 @@
  <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap">
-<link rel="stylesheet" href="plugins/animate.css-main/animate.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-cI5O7pHu1lRzzGzZj2QUiH7v2vVWrrn3b/2Jcw6+RuEzQs4nCXNJ3XSu17TT2JFfqAmw1MK4LpJ66/cJ/JbSiA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link rel = "stylesheet" href = "plugins/animate.css-main/animate.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 
@@ -51,13 +50,13 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
   #header:before {
     content: "";
     position: absolute;
-    height: 100%;
+    height: 110%;
     width: 100%;
     background-image: url(<?= validate_image($_settings->info("cover")) ?>);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-color: black;
+  
   }
 
   
@@ -88,6 +87,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
   .content{
     background-color: "blue";
   }
+  
   .site-title {
     font-family: Arial, sans-serif; 
   }
@@ -105,10 +105,6 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
       font-family: 'Poppins', sans-serif;
 }
 
-  .our-services{
-    color: white;
-    padding-top: 30px;
-  }
 
 
    body {
@@ -124,12 +120,19 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
             background-position: center;
         }
 
+        
+  .our-services{
+    color: white;
+    padding-top: 30px;
+        height: auto;
+  }
+
 
   .service-columns {
     display: flex;
     justify-content: space-around;
     text-align: center;
-     background-color: white;
+     background-color: transparent;
     margin-top: 40px;
         font-family: 'Poppins', sans-serif;
   }
@@ -139,6 +142,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     flex: 1;
      background-color: white;
     margin: 0 10px;
+    
   }
 
  
@@ -166,6 +170,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -199,10 +204,22 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     display: block; /
 }
 
-.services-content{
-  height: 100vh;
-      background-color: 
-    #437ABD;
+.services-content {
+  height: 50vh;
+  background-image: url('uploads/servicecontent.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the background image */
+  position: relative; /* Allows absolute positioning of the overlay */
+}
+
+.services-content::before {
+  content: ""; /* Creates a pseudo-element to act as the dimming overlay */
+  position: absolute; /* Position the overlay relative to its parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.5) to control the dimming effect */
 }
 
 
@@ -211,7 +228,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     #437ABD;
   margin-top: 50px;
   color: black;
-   height: 150vh;
+   height: auto;
        font-family: 'Poppins', sans-serif;
 }
 
@@ -220,12 +237,15 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    
 }
 
 .aboutus-content {
-        background-color: 
-    #437ABD;
+  background-image: url("uploads/Divider.png");
+  background-position: bottom;
         font-family: 'Poppins', sans-serif;
+        background-repeat: no-repeat;
+        background-size: cover;
    
 }
 
@@ -234,43 +254,49 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
         font-family: 'Poppins', sans-serif;
 }
 
-.about-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.about-section img {
-    position: absolute;
-    width: 200px;
+.aboutus-content {
+    padding: 50px 0;
+        background-color: 
+    #437ABD;
     height: auto;
 }
 
 .about-text {
+    margin-bottom: 30px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
     font-size: 18px;
     line-height: 1.6;
-    color: #555;
-    padding-right: 170px;
-    padding-bottom: 170px;
 }
 
-.about-us{
-  width: 100%;
-      font-family: 'Poppins', sans-serif;
+.about-image {
+    text-align: center;
 }
 
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
 
 .home-button{
-  height: 50px;
+  height: 70px;
   width: auto;
-  background-color: white;
-  color: black;
-  font-size: 12;
-  margin-top: 100px;
-     font-family: 'Poppins', sans-serif;
-   border-radius: 20px;
+  background-color: #FCDC2A;
+  color: white;
+  font-size: 15;
+  font-weight: bold;
+ 
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+  
    
 }
 
@@ -300,12 +326,20 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
 
 
     .dog-images-content{
-      height: 40vh;
+      height: auto;
           font-family: 'Poppins', sans-serif;
     }
+
 .award-images-content{
-      height: 50vh;
+      height: auto;
           font-family: 'Poppins', sans-serif;
+            background-image: url("uploads/Divider.png");
+  background-position: bottom;
+        font-family: 'Poppins', sans-serif;
+        background-repeat: no-repeat;
+        background-size: cover;
+     
+        
     }
 
      .accordion-btn {
@@ -348,7 +382,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     .faqs-content{
           font-family: 'Poppins', sans-serif;
       margin-top: 50px;
-      height: 100vh;
+      height: auto;
           background-color: 
     #437ABD;
     }
@@ -379,39 +413,112 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
         opacity: 1;
       }
     }
+
+.headertext {
+ 
+    
+    color: yellow;
+}
+
+    .big-text {
+        font-size: 5.5em; 
+    }
+     .small-text {
+        align-items: center;
+       margin-left: 50px;
+        font-size: 30px; /* adjust the size as needed */
+    }
+
+
+    /* Define the animation */
+@keyframes pop-out {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Apply the animation to the content */
+.animation-content {
+    animation: pop-out 0.5s ease-out;
+    transform-origin: center;
+    opacity: 0; /* Initially hide the content */
+}
+
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-on-scroll {
+            visibility: hidden;
+        }
+
 </style>
 
 
+
+
 <?php require_once('inc/header.php') ?>
-  <body class="layout-top-nav " style="height: auto;">
+<body class="layout-top-nav " style="height: auto;">
     <div class="wrapper">
-     <?php $page = isset($_GET['page']) ? $_GET['page'] : 'home';  ?>
-     <?php require_once('inc/topBarNav.php') ?>
-     <?php if($_settings->chk_flashdata('success')): ?>
-      <script>
-        alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
-      </script>
-      <?php endif;?>    
-  <div id="home" class="content-wrapper pt-5 d-flex justify-content-center ">
-    <?php if($page == "home" || $page == "about_us"): ?>
-        <div id="header" class="shadow mb-4">
-            <div class="centered px-1">
-                <div class="row justify-content-center">
-                   <div class="col-12 col-md-6 text-center">
-                        <h1 class="animate__animated animate__fadeInUp animate__slow   headertext site-title" style="font-family: Arial, sans-serif;"><?php echo $_settings->info('name') ?></h1>
-                    </div>
-                <div class="col-12 col-md-6 text-center mt-5 ">
-                       <button onclick="proceedToAdmin()" class="animate__animated animate__fadeInUp animate__slow btn-round home-button">Book Appointment Now</button>
-                    </div>
-                   
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+        <?php $page = isset($_GET['page']) ? $_GET['page'] : 'home';  ?>
+
+        <?php if($_settings->chk_flashdata('success')): ?>
+            <script>
+                alert_toast("<?php echo $_settings->flashdata('success') ?>",'success')
+            </script>
+        <?php endif;?>    
+
+        <div id="home" class="content-wrapper pt-5 d-flex justify-content-center ">
+            <?php if($page == "home" || $page == "about_us"): ?>
+                <?php require_once('inc/topBarNav.php') ?>
+                <div id="header" class="shadow mb-4">
+                    <div class="centered px-5">
+                        <div class="row mt-5">
+                            <div class="col mt justify-content-center">
+    <div class="col-12 col-md-6 text-center">
+        <h1 class="animate__animated animate__fadeIn animate__slow headertext site-title" style="font-family: Comic 'Courier New', Courier, monospace; font-size: 10px; width:auto">
+            <?php
+            $name = $_settings->info('name');
+            $name_parts = explode(' ', $name);
+            // Output the first part of the name with big-text class
+            echo '<span class="big-text">' . $name_parts[0] . '</span>';
+            // Output the rest of the name with small-text class
+            if (count($name_parts) > 1) {
+                echo '<br><span class="small-text">'. implode(' ', array_slice($name_parts, 1)).'</span>';
+            }
+            ?>
+        </h1>
+    </div>
+    <div class="col-12 col-md-6 text-center mt-5">
+        <button onclick="proceedToAdmin()" class="animate__animated animate__fadeInUp animate__slow btn-round home-button">Book Appointment Now</button>
+    </div>
 </div>
 
+                            <div class="col-12 col-md-6 text-center mt-5">
+                                <img src="uploads/home.png"  style="height: 70% ; ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- Closing div for #home -->
+        <?php endif; ?>
+    </div>
+</body>
 
-  <section id="services" class="services-content">
+
+
+  <section id="services" class="services-content animate-on-scroll wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
       <?php 
         if(!file_exists($page.".php") && !is_dir($page)){
@@ -420,8 +527,8 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
       }
       ?>
 
-      <div class="animate__animated animate__fadeInUp animate__slow our-services">
-        <h1 style="text-align: center; color: white; font-size: 50px">Our Services</h1>
+      <div class="wow animate__animated animate__fadeInUp animate__slow our-services">
+        <h1 style="text-align: center; color: white; font-size: 60px">Our Services</h1>
         <div class="service-columns text-align: center;">
           <div class="service-column">
             <h3 style="color:black">Full Grooming</h3>
@@ -466,7 +573,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
               </div>
               <!-- Service Item 5: Ear Cleaning -->
               <div class="service-item">
-                <i class="fas fa-ear"></i>
+              <i class="fa-solid fa-ear-listen"></i>
                 <span>Ear Cleaning</span>
                 <div class="popup">
                   <p>Ear cleaning helps to remove dirt, wax, and debris from your pet's ears, preventing infections and discomfort.</p>
@@ -542,7 +649,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
     </div>
   </section>
 
-<section id="dog-images" class="dog-images-content">
+<section id="dog-images" class="dog-images-content animate-on-scroll wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
   <div class="container">
     <!-- Check if the page exists or is a directory -->
     <?php 
@@ -598,7 +705,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
 </section>
 
 
-<section id="dog-images" class=".award-images-content">
+<section id="dog-images" class="award-images-content animate-on-scroll wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s ">
   <div class="container">
     <!-- Check if the page exists or is a directory -->
     <?php 
@@ -646,7 +753,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
 </section>
 
 
-<section id="location" class="location-content">
+<section id="location" class="location-content animate-on-scroll wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
         <?php 
             if(!file_exists($page.".php") && !is_dir($page)){
@@ -664,23 +771,28 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
             <div id="map"></div>
             <br>
             <br>
-            <h1 style="text-align: center; font-style: italic; color: white;">Contact Us</h1>
-            <p style="text-align: center; font-style: italic; color: white;">Reach us out with our email and phone number:</p>
+            <div class="contact-us">
 
-            <div class="service-columns text-align: center; color: white;">
-                <div class="service-column" style="color: black;">
-                    <p><i class="fa fa-envelope"></i> Email: candcpetgrooming@gmail.com</p>
+                <div class="service-columns text-align: center; color: white;">
+                    <div class="service-column" style="color: black;">
+                        <img src="uploads/contactus.png" style="width: 190px; height: 500px;">
+                    </div>
+                    <div class="service-column" style="color: black;">
+                        <div style="margin-bottom: 20px;">
+                                        <h1 style="text-align: left; font-style: italic; color: black;">Contact Us</h1>
+                            <p style="font-size: 16px;"><i class="fa fa-envelope" style="margin-right: 10px;"></i> Email: candcpetgrooming@gmail.com</p>
+                            <p style="font-size: 16px;"><i class="fa fa-phone" style="margin-right: 10px;"></i> Contact #: 0927 475 0756</p>
+                        </div>
+                        <p style="text-align: center; font-style: italic; color: black; margin-bottom: 10px;">Social Media Sites</p>
+                        <div style="text-align: center;">
+                            <a href="https://www.facebook.com/profile.php?id=61550050215984" target="_blank" style="display: inline-block; background-color: #3b5998; padding: 10px 20px; border-radius: 50%; text-decoration: none; margin-right: 10px;">
+                                <i class="fab fa-facebook-f" style="color: white;"></i>
+                            </a>
+                            <!-- Add more social media icons here -->
+                        </div>
+                    </div>
+                   
                 </div>
-                <div class="service-column" style="color: black;">
-                    <p><i class="fa fa-phone"></i> Contact #: 0927 475 0756</p>
-                </div>
-            </div>
-            <br>
-            <p style="text-align: center; font-style: italic; color: white;">Social Media Sites</p>
-            <div style="text-align: center;">
-                <a href="https://www.facebook.com/profile.php?id=61550050215984" target="_blank" style="display: inline-block; background-color: #3b5998; padding: 10px 20px; border-radius: 50%; text-decoration: none;">
-                    <i class="fab fa-facebook-f" style="color: white;"></i>
-                </a>   
             </div>
         </div>
         <?php } ?>
@@ -688,42 +800,41 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
 </section>
 
 
-<section id="about" class="aboutus-content" style="background-color: #f5f5f5;">
-    <?php 
-    if(!file_exists($page.".php") && !is_dir($page)){
-        include '404.html';
-    } else {
-    ?>
 
+<section id="about" class="aboutus-content animate-on-scroll wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" style="background-color: white;">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="about-text text-center" style="font-family: 'Poppins', sans-serif;">
-                    <h1>About Us</h1>
+        <div class="row animate__animated animate__fadeInUp animate__slow">
+            <div class="col-md-6">
+                <div class="about-text">
+                    <h2>About Us</h2>
                     <p>Welcome to C & C Pet Grooming & Supplies, your premier destination for premium pet grooming services, high-quality pet supplies, and top-notch pet hotel accommodations. Located in the heart of Cavite City, specifically at Mang Art's Commercial Building on Dra. Salamanca Road, our establishment has been proudly serving the local community since August 2023.</p>
                     <p>Our grooming salon is staffed by a team of experienced and skilled groomers dedicated to providing top-notch care for every pet that walks through our doors. From bathing and brushing to nail trimming and styling, we offer a comprehensive range of grooming services tailored to meet the unique needs of each individual pet.</p>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="about-image">
+                    <img src="uploads/aboutus.png" alt="About Us Image">
+                </div>
+            </div>
         </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="about-text text-center" style="font-family: 'Poppins', sans-serif;">
+        <div class="row animate__animated animate__fadeInUp animate__slow">
+            <div class="col-md-6">
+                <div class="about-image">
+                    <img src="uploads/aboutus1.png" alt="About Us Image">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-text">
                     <p>In addition to our grooming services and pet supplies, we also provide pet hotel accommodations for those times when you need to be away from your furry companions. Our pet hotel offers a safe, comfortable, and nurturing environment where your pets can relax and enjoy their stay while you're traveling or unavailable to care for them.</p>
-                    <p>At C & C Pet Grooming & Supplies, we prioritize the well-being and satisfaction of both pets and pet owners alike. Our friendly and knowledgeable staff are always on hand to provide expert advice, personalized recommendations, and assistance with all your pet-related needs.</p>
-                    <p>Whether you're a long-time customer or visiting us for the first time, we strive to create a welcoming and enjoyable experience for you and your furry friends. Thank you for choosing C & C Pet Grooming & Supplies as your trusted partner in pet care. We look forward to serving you and your pets for many years to come!</p>
+                    <p>At C & C Pet Grooming & Supplies, we prioritize the well-being and satisfaction of both pets and pet owners alike. Our friendly and knowledgeable staff are always on hand to provide expert advice, personalized recommendations, and assistance with all your pet-related needs. Thank you for choosing C & C Pet Grooming & Supplies as your trusted partner in pet care. We look forward to serving you and your pets for many years to come!</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <?php } ?>
 </section>
 
-
-
-
-<section id="faqs" class="faqs-content">
+<section id="faqs" class="faqs-content animate-on-scroll wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
+  
     <div class="container">
         <?php 
             if(!file_exists($page.".php") && !is_dir($page)){
@@ -788,6 +899,7 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
         </div>
 
         <?php } ?>
+    </div>
     </div>
 </section>
 
@@ -857,6 +969,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAn74Q8vlhBI0tG7NTolG_3-9vUef2BGFQ"></script>
+  
+     <script src = "plugins/WOW-master/dist/wow.js"></script>
+  
+  
   <script>
     // Initialize and add the map
     function initMap() {
@@ -883,8 +999,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
   <!-- Call the initMap function when the page loads -->
   <script>
     initMap();
+    $(document).ready(function () {
+    new WOW().init();
+    });
   </script>
-
 
  <script>
 
@@ -947,8 +1065,57 @@ body, h1, h2, h3, h4, h5, h6, p, span, div, button {
       function proceedToAdmin() {
         window.location.href = "admin/index.php";
     }
+
+  
+// Function to handle animation
+
 </script>
-    
+
+<script>
+    // Intersection Observer options
+    const options = {
+        threshold: 0.5 // Trigger animation when 50% of the element is visible
+    };
+
+    // Function to handle animation when the element is in the viewport
+    const handleAnimation = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate__animated', 'animate__fadeInUp', 'animate__slow');
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    // Create an Intersection Observer instance
+    const observer = new IntersectionObserver(handleAnimation, options);
+
+    // Select all elements with the class 'animate-on-scroll'
+    const elements = document.querySelectorAll('.animate-on-scroll');
+
+    // Observe each element
+    elements.forEach(element => observer.observe(element));
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const animateOnScroll = document.querySelectorAll('.animate-on-scroll');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp', 'animate__slow');
+                }
+            });
+        });
+
+        animateOnScroll.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
+
 
     
   </body>

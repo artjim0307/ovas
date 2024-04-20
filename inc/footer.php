@@ -68,7 +68,7 @@
         </strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-          <b><?php echo $_settings->info('short_name') ?> (by: <a href="mailto:ryanchristiandiaz1997@gmail.com" target="blank">Ryan Diaz</a> )</b> v1.0
+        
         </div>
       </div>
       </footer>
